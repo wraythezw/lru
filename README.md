@@ -12,4 +12,5 @@ My goal with this package is to provide an interface similar to JunOS/Cisco for 
 current commands
 
 show network
+
 show network ifname
