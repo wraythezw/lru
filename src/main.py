@@ -4,5 +4,8 @@ import socket
 from lruCLI import cli
 
 prompt = cli()
-prompt.prompt = socket.gethostname() + '> '
-prompt.cmdloop('Starting prompt...')
+prompt.prompt = '> '
+
+prompt.cmdloop('***   LRU System prompt init ***')
+
+print "end"
