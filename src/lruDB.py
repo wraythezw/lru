@@ -33,3 +33,26 @@ class db:
             t.close()
         print " }"
         print "}"
+    def parseNetworkConfigInterface(self,node):
+        print "network{"
+        print " " + node + "{"
+        # get interfaces from /etc/sysconfig/network-scripts/
+        t=open("/etc/sysconfig/network-scripts/ifcfg-" + node)
+        lines = t.read().split("\n")
+        for i in lines:
+          if "NAME" in i:
+            print "  name = " + i.split("=",1)[1]
+          if "BOOTPROTO" in i:
+            print "  type = " + i.split("=",1)[1] 
+          if "IPADDR" in i:
+            print "  ipaddress = " + i.split("=",1)[1]
+          if "NETMASK" in i:
+            print "  mask = " + i.split("=",1)[1]
+          if "ONBOOT" in i:
+            print "  active = " + i.split("=",1)[1]     
+          if "HWADDR" in i:
+            print "  hwaddr = " + i.split("=",1)[1]                
+#        print lines
+        t.close()
+        print " }"
+        print "}"
